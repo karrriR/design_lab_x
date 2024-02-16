@@ -1,0 +1,3359 @@
+@font-face {
+    font-family: "Montserrat semibold";
+    src: url("../fonts/Montserrat/static/Montserrat-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+}
+@font-face {
+    font-family: "Montserrat bold";
+    src: url("../fonts/Montserrat/static/Montserrat-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "Montserrat medium";
+    src: url("../fonts/Montserrat/static/Montserrat-Medium.ttf") format("truetype");
+    font-weight: 500;
+}
+@font-face {
+    font-family: "Montserrat regular";
+    src: url("../fonts/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Century Gothic regular";
+    src: url("../fonts/Century_Gothic/centurygothic.ttf") format("truetype");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Century Gothic bold";
+    src: url("../fonts/Century_Gothic/centurygothic_bold.ttf") format("truetype");
+    font-weight: 700;
+}
+
+
+$black: rgb(0, 0, 0);
+$violet: #7823D1;
+$dark-blue: #5C59FF;
+$gently-lilac: #EFE9F4;
+$blue: #AFAAFF;
+$purple: #BE78F5;
+$white: #FFFFFF;
+
+%title {
+    font-family: "Century Gothic regular";
+    font-weight: 400;
+    line-height: 145.607%;
+    color: $black;
+}
+%title-two {
+    font-family: "Century Gothic bold";
+    font-weight: 700;
+    font-size: 42px;
+    color: $black;
+}
+%text {
+    font-family: "Montserrat medium";
+    font-weight: 500;
+    line-height: 37.5px;
+    font-size: 16px;
+    color: $black;
+    width: 657px;
+}
+%text-two {
+    font-family: "Montserrat regular";
+    font-weight: 400;
+    color: $black;
+}
+%button-text {
+    font-family: "Montserrat semibold";
+    font-weight: 600;
+}
+%button {
+    padding: 17px 37px;
+    border-radius: 18px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: $white;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+.container-two {
+    width: 100%;
+    height: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.main-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 79px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    &_wrapper {
+        list-style-type: none;
+    }
+    &_link {
+        text-decoration: none;
+    }
+}
+.dropdown-menu {
+    z-index: 333;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 459px;
+    background-color: $violet;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+    &_close-box {
+        margin: 20px 0px 20px 30px;
+    }
+    &_button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    &_main-box {
+        text-align: end;
+        margin-right: 74px;
+    }
+    &_wrapper {
+        list-style-type: none;
+        margin-bottom: 35px;
+    }
+    &_title {
+        color: rgba(255, 255, 255, 0.60);
+        font-family: "Montserrat medium";
+        font-size: 24px;
+        font-weight: 500;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    &_title-margin {
+        margin-bottom: 25px;
+    }
+    &_link {
+        text-decoration: none;
+        font-family: "Montserrat regular";
+        font-weight: 400;
+        font-size: 18px;
+        color: $white;
+    }
+}
+.dropdown-menu_list:not(:last-child) {
+    margin-bottom: 15px;
+}
+.dropdown-menu.open {
+    transform: translateX(0);
+}
+.overlay {
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.682);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0s linear 0.3s;
+}
+  
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s;
+}
+.dropdown-menu_svg-close:hover path {
+    fill: $black;
+    transition: fill 0.3s;
+}
+.dropdown-menu_title:hover {
+    color: rgba(0, 0, 0, 0.60);;
+}
+.dropdown-menu_link:hover {
+    color: $black;
+}
+
+.intro {
+    width: 1604px;
+    height: 753px;
+    background: url("../image/backgrounds/bg_index.png") no-repeat;
+    background-position: center center;
+    background-size: cover;
+    &_title {
+        @extend %title;
+        font-size: 63px;
+        width: 701px;
+        margin-bottom: 33px;
+    }
+    &_text {
+        @extend %text;
+        margin-bottom: 33px;
+    }
+    &_button {
+        @extend %button;
+        background: $violet;
+        border: none;
+        cursor: pointer;
+    }
+    &_button-text {
+        @extend %button-text;
+        font-size: 18px;
+        color: $white;
+    }
+    &_main-box {
+        padding: 193px 0 0 96px;
+    }
+}
+.section-one {
+    margin-top: 118px;
+    margin-bottom: 120px;
+    &_title {
+        @extend %title-two;
+        text-align: center;
+        margin-bottom: 96px;
+    }
+    &_course-box {
+        width: 657px;
+        height: 374px;
+        background-position: center center;
+        background-size: cover;
+        border-radius: 35px;
+    }
+    &_course-box-main {
+        padding: 19px 38px 29px 38px;
+    }
+    &_additional-information-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &_additional-button {
+        @extend %button;
+        background-color: transparent;
+        border: 1.5px solid #FFF;
+    }
+    &_additional-button-text {
+        @extend %button-text;
+        color: $white;
+        font-size: 14px;
+    }
+    &_additional-more-detailed-box {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    &_additional-more-detailed-text {
+        @extend %title;
+        font-size: 18px;
+        color: $white;
+        margin-right: 6px;
+    }
+    &_main-information-title {
+        @extend %title;
+        color: $white;
+        font-size: 32px;
+    }
+    &_main-information-text {
+        @extend %text-two;
+        font-size: 15px;
+        color: $white;
+        line-height: 37.5px;
+        width: 317px;
+        margin: 6px 0 27px 0;
+    }
+    &_main-information-button {
+        @extend %button;
+        background-color: $white;
+        border: none;
+        cursor: pointer;
+    }
+    &_main-information-button-text {
+        @extend %button-text;
+        color: $black;
+        font-size: 16px;
+    }
+    &_main-information-box {
+        margin-top: 27px;
+    }
+    &_courses-box {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    &_button {
+        @extend %button;
+        background-color: transparent;
+        border: 1.5px solid #000;
+    }
+    &_button-text {
+        @extend %button-text;
+        color: $black;
+        font-size: 18px;
+    }
+    &_button-box {
+        text-align: center;
+        margin-top: 85px;
+    }
+}
+.section-one_additional-button-box button:nth-child(1) {
+    margin-right: 23px;
+}
+.section-one_course-box:nth-child(-n+2) {
+    margin-bottom: 56px;
+}
+.section-one_course-box:nth-child(1) {
+    background: url("../image/backgrounds/bg_course_one.png") no-repeat;
+}
+.section-one_course-box:nth-child(2) {
+    background: url("../image/backgrounds/bg_course_two.png") no-repeat;
+}
+.section-one_course-box:nth-child(3) {
+    background: url("../image/backgrounds/bg_course_three.png") no-repeat;
+}
+.section-one_course-box:nth-child(4) {
+    background: url("../image/backgrounds/bg_course_four.png") no-repeat;
+}
+
+.section-two {
+    margin-bottom: 130px;
+    &_information-box {
+        padding: 56px 117px 50px 117px;
+        border-radius: 35px;
+        background-color: $gently-lilac;
+        margin-bottom: 46px
+    }
+    &_title {
+        @extend %title;
+        font-size: 24px;
+        line-height: 47.6px;
+        margin-bottom: 11px;
+    }
+    &_title-span {
+        font-family: "Century Gothic bold";
+        font-weight: 700;
+        color: $violet;
+    }
+    &_text {
+        @extend %title;
+        font-size: 20px;
+        line-height: 47.6px;
+    }
+    &_advantage-box {
+        padding: 12px 47px 30px 47px;
+        border-radius: 18px;
+        border: 1.5px solid #7823D1;
+    }
+    &_advantage-title {
+        @extend %button-text;
+        line-height: 37.5px;
+        text-align: center;
+        font-size: 14px;
+        color: $violet;
+        margin-bottom: 5px;
+    }
+    &_advantage-text {
+        @extend %text-two;
+        font-size: 13px;
+        text-align: justify;
+        line-height: 27.5px;
+    }
+    &_advantages-box {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &_width-one {
+        width: 238px;
+    }
+    &_width-two {
+        width: 445px;
+    }
+    &_width-three {
+        width: 397.026px;
+    }
+    &_width-four {
+        width: 483px;
+    }
+    &_width-five {
+        width: 398px;
+    }
+}
+.section-two_advantage-box:not(:nth-child(3)):not(:nth-child(5)) {
+    margin-right: 35px;
+}
+.section-two_advantage-box:nth-child(-n+3) {
+    margin-bottom: 30px;
+}
+.section-three {
+    margin-bottom: 151px;
+    &_title {
+        @extend %title-two;
+        text-align: center;
+        margin-bottom: 96px;
+    }
+    &_example-button {
+        @extend %button;
+        background-color: transparent;
+        border: 1.5px solid #000;
+        margin-bottom: 14px;
+        margin-right: 23px;
+    }
+    &_example-button-text {
+        @extend %button-text;
+        color: $black;
+        font-size: 14px;
+    }
+    &_example-button-two {
+        @extend %button;
+        background-color: $dark-blue;
+        border: none;
+        margin-bottom: 14px;
+    }
+    &_example-button-text-two {
+        @extend %button-text;
+        color: $white;
+        font-size: 14px;
+    }
+    &_example-button-box {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+    &_width-one {
+        max-width: 480px;
+    }
+    &_width-two {
+        max-width: 426.667px;
+    }
+    &_width-three {
+        max-width: 426.444px;
+    }
+    &_width-four {
+        max-width: 487px;
+    }
+    &_examples-box {
+        max-width: 1920px;
+        overflow: hidden;
+    }
+}
+
+.swiper-container .swiper-wrapper {
+    transform: translateX(240px);
+    z-index: 1;
+}
+.section-four {
+    &_consultation-form-box {
+        width: 1440px;
+        height: 503px;
+        background: url("../image/backgrounds/bg_form_purple.png") no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+    &_consultation-form-main {
+        padding: 92px 125px 93px 125px;
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+    }
+    &_consultation-form-title {
+        @extend %title;
+        font-size: 42px;
+        line-height: 59.1px;
+        margin-bottom: 34px;
+    }
+    &_consultation-form-text-box {
+        width: 510px;
+    }
+    &_consultation-form-text {
+        @extend %text-two;
+        font-size: 16px;
+        line-height: 47.6px;
+    }
+    &_consultation-form-input-box input {
+        width: 481px;
+        height: 53px;
+        border-radius: 18px;
+        background-color: $white;
+        border: none;
+        @extend %text-two;
+        font-size: 16px;
+        line-height: 37.5px;
+        color: $black;
+        padding-left: 10px;
+    }
+    &_consultation-form-input-box ::placeholder{
+        padding-left: 37px;
+        @extend %text-two;
+        color: rgba(0, 0, 0, 0.60);
+        font-size: 16px;
+        line-height: 37.5px;
+    }
+    &_consultation-form-formbox {
+        width: 491px;
+    }
+    &_personal-data input {
+        width: 25px;
+        height: 25px;
+        background-color: #EFE9F4;
+        border: 1.5px solid #000;
+        border-radius: 0%;
+    }
+    &_personal-data label {
+        @extend %text-two;
+        font-size: 12px;
+        margin-left: 12px;
+    }
+    &_personal-data {
+        display: flex;
+        align-items: center;
+        margin: 18px 0 23px 0;
+    }
+    &_personal-data-button {
+        padding: 17px 153px;
+        border-radius: 18px;
+        background-color: $violet;
+        border: none;
+        cursor: pointer;
+    }
+    &_personal-data-button-text {
+        @extend %button-text;
+        font-size: 14px;
+        color: $white;
+    }
+}
+.section-four_consultation-form-input-box input:nth-child(2) {
+    margin: 20px 0;
+}
+.footer {
+    margin-top: 200px;
+    &_main-box {
+        height: 190px;
+        border: 1.5px solid #7823D1;
+    }
+    &_main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &_main-wrapper {
+        list-style-type: none;
+    }
+    &_main-link {
+        text-decoration: none;
+    }
+    &_main-wrapper-logo {
+        width: 209px;
+        height: 79px;
+    }
+    &_main-list {
+        @extend %text-two;
+        font-size: 16px;
+    }
+    &_main-wrapper-apps {
+        display: flex;
+        width: 152px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &_aditional-box {
+        padding: 27px;
+        background-color: $violet;
+    }
+    &_aditional-text {
+        font-family: "Century Gothic regular";
+        font-weight: 400;
+        font-size: 14px;
+        color: $white;
+        text-align: center;
+    }
+}
+.footer_main-wrapper-info li:nth-child(2) {
+    margin: 12px 0;
+}
+
+/*Course.html*/
+.course-info {
+    width: 1604px;
+    height: 753px;
+    background: url("../image/backgrounds/bg_courses.png") no-repeat;
+    background-position: center center;
+    background-size: cover;
+    &_title {
+        @extend %title;
+        font-size: 63px;
+        width: 484px;
+        margin-bottom: 33px;
+    }
+    &_text {
+        @extend %text;
+        margin-bottom: 33px;
+    }
+    &_button {
+        @extend %button;
+        background: $violet;
+        border: none;
+        cursor: pointer;
+    }
+    &_button-text {
+        @extend %button-text;
+        font-size: 18px;
+        color: $white;
+    }
+    &_main-box {
+        padding: 165px 0 0 96px;
+    }
+}
+.course-aditional-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    &_button-two {
+        @extend %button;
+        background-color: transparent;
+        border: 1.5px solid #000;
+    }
+    &_button-text-two {
+        @extend %button-text;
+        color: $black;
+        font-size: 14px;
+    }
+    &_button {
+        @extend %button;
+        background-color: $dark-blue;
+        border: none;
+        margin-right: 12px;
+    }
+    &_button-text {
+        @extend %button-text;
+        color: $white;
+        font-size: 14px;
+    }
+}
+.section-study-programme {
+    margin-top: 120px;
+    margin-bottom: 115px;
+    &_title {
+        @extend %title-two;
+        text-align: center;
+        margin-bottom: 116px;
+    }
+    &_programme-name-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #7823D1;
+        padding-bottom: 17px;
+    }
+    &_programme-name {
+        @extend %title;
+        font-size: 32px;
+        text-transform: lowercase;
+        width: 603px;
+    }
+    &_programme-add-box {
+        display: flex;
+        align-items: center;
+    }
+    &_button {
+        @extend %button;
+        background: $violet;
+        border: none;
+        margin-right: 90px;
+    }
+    &_button-text {
+        @extend %button-text;
+        font-size: 14px;
+        color: $white;
+    }
+    &_main-info-text {
+        @extend %text-two;
+        font-size: 15px;
+        text-align: justify;
+    }
+    &_programme-box {
+        width: 1280px;
+        margin: 0 auto;
+    }
+    &_close {
+        cursor: pointer;
+        transition: transform 0.4s ease-in;
+    }
+    &_main-info {
+        margin-top: 20px;
+        margin-bottom: 30px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.8s ease;
+    }
+}
+.section-study-programme_programme-box.active .section-study-programme_main-info {
+    max-height: 500px;
+}
+
+.section-study-programme_programme-box.active svg {
+    transform: rotate(45deg);
+}
+.section-record-form {
+    &_box {
+        width: 1440px;
+        height: 503px;
+        background: url("../image/backgrounds/bg_form_blue.png") no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+    &_main {
+        padding: 92px 125px 55px 125px;
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+    }
+    &_title {
+        @extend %title;
+        font-size: 42px;
+        line-height: 59.1px;
+        margin-bottom: 34px;
+    }
+    &_text-box {
+        width: 510px;
+    }
+    &_text {
+        @extend %text-two;
+        font-size: 16px;
+        line-height: 47.6px;
+    }
+    &_input-box input {
+        width: 481px;
+        height: 53px;
+        border-radius: 18px;
+        background-color: $white;
+        border: none;
+        @extend %text-two;
+        font-size: 16px;
+        line-height: 37.5px;
+        color: $black;
+        padding-left: 10px;
+    }
+    &_input-box ::placeholder{
+        padding-left: 37px;
+        @extend %text-two;
+        color: rgba(0, 0, 0, 0.60);
+        font-size: 16px;
+        line-height: 37.5px;
+    }
+    &_formbox {
+        width: 491px;
+    }
+    &_personal-data input {
+        width: 25px;
+        height: 25px;
+        background-color: #EFE9F4;
+        border: 1.5px solid #000;
+        border-radius: 0%;
+    }
+    &_personal-data label {
+        @extend %text-two;
+        font-size: 12px;
+        margin-left: 12px;
+    }
+    &_personal-data {
+        display: flex;
+        align-items: center;
+        margin: 18px 0 23px 0;
+    }
+    &_personal-data-button {
+        padding: 17px 171px;
+        border-radius: 18px;
+        background-color: $violet;
+        border: none;
+        cursor: pointer;
+    }
+    &_personal-data-button-text {
+        @extend %button-text;
+        font-size: 14px;
+        color: $white;
+    }
+    &_rate-box {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+    &_rate-title {
+        @extend %text;
+        font-size: 14px;
+        line-height: normal;
+        width: 51px;
+        margin-right: 25px;
+    }
+    &_rate {
+        display: flex;
+        align-items: center;
+    }
+    &_rate input {
+        width: 14px;
+        height: 14px;
+        margin-right: 7px;
+    }
+    &_rate label {
+        @extend %text-two;
+        font-size: 14px;
+    }
+}
+.section-record-form_input-box input:nth-child(2) {
+    margin: 20px 0;
+}
+.section-record-form_rate-box .section-record-form_rate:nth-of-type(2) {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.section-rates {
+    margin-top: 130px;
+    &_title-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 100px;
+    }
+    &_title {
+        @extend %title-two;
+        line-height: 154.9%;
+        width: 719px;
+    }
+    &_text {
+        @extend %title;
+        text-align: right;
+        font-size: 20px;
+        line-height: 47.6px;
+        width: 587px;
+    }
+    &_rate-box {
+        width: 336px;
+        height: 649px;
+        padding: 20px 32px 40px 36px;
+        background-color: transparent;
+        border-radius: 35px;
+        border: 1.5px solid #000;
+        display: grid;
+        align-content: space-between;
+    }
+    &_rate-title {
+        @extend %button-text;
+        text-align: center;
+        font-size: 26px;
+        line-height: 37.5px;
+        color: $violet;
+        margin-bottom: 30px;
+    }
+    &_rate-list {
+        list-style-position: outside;
+        margin-left: 20px;
+    }
+    &_rate-row {
+        @extend %text-two;
+        text-align: justify;
+        font-size: 14px;
+        line-height: 26.5px;
+        padding-left: 1em;
+    }
+    &_rate-bonus-title {
+        @extend %button-text;
+        font-size: 16px;
+        line-height: 37.5px;
+        margin-top: 13px;
+    }
+    &_rate-bonus-list {
+        list-style-position: outside;
+        margin-left: 20px;
+    }
+    &_rate-bonus-row {
+        @extend %text-two;
+        text-align: justify;
+        font-size: 14px;
+        line-height: 26.5px;
+        padding-left: 1em;
+    }
+    &_rate-old-price {
+        @extend %title;
+        font-size: 16px;
+        color: $violet;
+        line-height: 204.9%;
+        text-decoration-line: line-through;
+        margin-bottom: 5px
+    }
+    &_rate-new-price {
+        @extend %title;
+        font-size: 16px;
+        color: $black;
+        line-height: 204.9%;
+    }
+    &_rate-new-price-span {
+        font-size: 36px;
+    }
+    &_rate-installment {
+        color: rgba(0, 0, 0, 0.50);
+        font-size: 14px;
+    }
+    &_rate-button-box {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    &_rate-button {
+        @extend %button;
+        background: $violet;
+        border: none;
+    }
+    &_rate-button-text {
+        @extend %button-text;
+        font-size: 16px;
+        color: $white;
+    }
+    &_rate-popular-box {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 35px;
+    }
+    &_rate-popular-button {
+        @extend %button;
+        background: $dark-blue;
+        border: none;
+    }
+    &_rate-popular-button-text {
+        @extend %button-text;
+        font-size: 14px;
+        color: $white;
+        text-transform: uppercase;
+    }
+    &_rates-box {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: end;
+    }
+    &_rate-popular-title {
+        color: $dark-blue;
+    }
+}
+.section-reviews {
+    margin-top: 130px;
+    &_title {
+        @extend %title-two;
+        text-align: center;
+        margin-bottom: 94px;
+    }
+    &_box-name {
+        display: flex;
+        align-items: center;
+    }
+    &_img {
+        margin-right: 30px;
+    }
+    &_button {
+        @extend %button;
+        background-color: transparent;
+        border: 1.5px solid #000;
+    }
+    &_button-text {
+        @extend %button-text;
+        color: $black;
+        font-size: 14px;
+    }
+    &_box-text {
+        width: 462px;
+        height: 125px;
+        border-radius: 18px;
+        background-color: $purple;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 35px;
+    }
+    &_text {
+        width: 402px;
+        color: $white;
+        @extend %text-two;
+        font-size: 14px;
+    }
+    &_box {
+        width: 493px;
+        height: 271px;
+        padding: 30px 30px;
+        border-radius: 35px;
+        background: rgba(175, 170, 255, 0.21);
+        flex-shrink: 0;
+    }
+    &_boxs {
+        max-width: 1920px;
+        overflow: hidden;
+        display: flex;
+    }
+}
+
+/*Contacts.html*/
+
+.contacts-info {
+    width: 1604px;
+    height: 753px;
+    background: url("../image/backgrounds/bg_contacts.png") no-repeat;
+    background-position: center center;
+    background-size: cover;
+    &_title {
+        @extend %title;
+        font-size: 63px;
+        width: 701px;
+        margin-bottom: 33px;
+    }
+    &_text {
+        @extend %text;
+        margin-bottom: 33px;
+    }
+     &_button {
+        @extend %button;
+        background: $violet;
+        border: none;
+        cursor: pointer;
+    }
+    &_button-text {
+        @extend %button-text;
+        font-size: 18px;
+        color: $white;
+    }
+    &_main-box {
+        padding: 177px 0 0 96px;
+    }
+}
+.section-director-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-top: 112px;
+    &_text-box {
+        width: 825px;
+    }
+    &_title {
+        @extend %title-two;
+        text-align: right;
+        font-size: 42px;
+        line-height: 154.9%;
+        margin-bottom: 41px;
+    }
+    &_text {
+        @extend %title;
+        text-align: right;
+        font-size: 20px;
+        line-height: 47.6px;
+    }
+    &_social-network-box {
+        width: 192px;
+        display: flex;
+        justify-content: space-between;
+        float: right;
+        margin-top: 42px;
+    }
+}
+.section-answer-form {
+    margin-top: 165px;
+    &_box {
+        width: 1440px;
+        height: 503px;
+        background: url("../image/backgrounds/bg_form_blue.png") no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+    &_main {
+        padding: 43px 125px 42px 125px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &_title {
+        @extend %title;
+        font-size: 42px;
+        line-height: 59.1px;
+        margin-bottom: 34px;
+    }
+    &_text-box {
+        width: 510px;
+    }
+    &_text {
+        @extend %text-two;
+        font-size: 16px;
+        line-height: 47.6px;
+    }
+    &_input-box input {
+        width: 481px;
+        height: 53px;
+        border-radius: 18px;
+        background-color: $white;
+        border: none;
+        @extend %text-two;
+        font-size: 16px;
+        line-height: 37.5px;
+        color: $black;
+        padding-left: 10px;
+    }
+    &_input-box textarea {
+        width: 481px;
+        height: 80px;
+        border-radius: 18px;
+        background-color: $white;
+        border: none;
+        @extend %text-two;
+        font-size: 16px;
+        line-height: 37.5px;
+        color: $black;
+        padding-left: 10px;
+        resize: none;
+    }
+    &_input-box ::placeholder{
+        padding-left: 37px;
+        @extend %text-two;
+        color: rgba(0, 0, 0, 0.60);
+        font-size: 16px;
+        line-height: 37.5px;
+    }
+    &_formbox {
+        width: 491px;
+    }
+    &_personal-data input {
+        width: 25px;
+        height: 25px;
+        background-color: #EFE9F4;
+        border: 1.5px solid #000;
+        border-radius: 0%;
+    }
+    &_personal-data label {
+        @extend %text-two;
+        font-size: 12px;
+        margin-left: 12px;
+    }
+    &_personal-data {
+        display: flex;
+        align-items: center;
+        margin: 18px 0 23px 0;
+    }
+    &_personal-data-button {
+        padding: 17px 204px;
+        border-radius: 18px;
+        background-color: $violet;
+        border: none;
+        cursor: pointer;
+    }
+    &_personal-data-button-text {
+        @extend %button-text;
+        font-size: 14px;
+        color: $white;
+    }
+}
+.section-answer-form_input-box input {
+    margin: 0 0 20px 0;
+}
+
+.profile-info {
+    &_main-box {
+        width: 1440px;
+        height: 513px;
+        background: url("../image/backgrounds/bg_profile.png") no-repeat;
+        background-position: center center;
+        background-size: cover;
+        margin: 70px auto 105px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &_box {
+        width: 1245px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &_title {
+        @extend %title;
+        line-height: auto;
+        font-size: 63px;
+        text-align: center;
+    }
+    &_img-box img {
+        width: 466px;
+        height: 407px;
+        object-fit: cover;
+        border-radius: 35px;
+    }
+    &_img-box {
+        margin-right: 95px;
+        width: 466px;
+    }
+    &_label {
+        font-family: "Montserrat medium";
+        font-weight: 500;
+        font-size: 18px;
+        margin-right: 5px;
+    }
+    &_info-input p {
+        font-family: "Montserrat medium";
+        font-weight: 500;
+        font-size: 18px;
+        text-overflow: ellipsis;
+        width: 180px;
+        overflow: hidden;
+    }
+    &_info-input {
+        margin-bottom: 25px;
+        width: 340px;
+        display: flex;
+    }
+    &_info-user {
+        height: 264px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    &_button {
+        @extend %button;
+        background: $violet;
+        border: none;
+        cursor: pointer;
+        margin-top: 5px;
+        margin-bottom: 27px;
+    }
+    &_button-text {
+        @extend %button-text;
+        font-size: 18px;
+        color: $white;
+    }
+    &_button-box {
+        display: inline-grid;
+        text-align: center;
+    }
+    &_link-delete {
+        font-family: "Montserrat medium";
+        font-weight: 500;
+        font-size: 16px;
+        border: none;
+        background-color: transparent;
+        color: $violet;
+    }
+}
+
+.profile-courses {
+    &_box {
+        display: flex;
+        align-items: center;
+    }
+    &_title {
+        @extend %title-two;
+    }
+    &_namebox {
+        margin-right: 90px;
+    }
+    &_button-text {
+        @extend %button-text;
+        color: $black;
+        font-size: 22px;
+    }
+    &_button {
+        @extend %button;
+        background-color: transparent;
+        border: 1.5px solid #000;
+        margin-right: 30px;
+    }
+    &_active {
+        background-color: $dark-blue;
+        border: none;
+    }
+    &_active-text {
+        @extend %button-text;
+        color: $white;
+        font-size: 22px;
+    }
+    &_result {
+        margin-top: 125px;
+    }
+    &_not-found {
+        @extend %title-two;
+        font-size: 60px;
+        color: rgba(0, 0, 0, 0.42);
+        text-align: center;
+    }
+    &_result-course {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    
+    &_result-course > div {
+        margin-left: 78px;
+        margin-top: 10px;
+    }
+    
+    &_result-course > div:nth-child(3n+1) {
+        margin-left: 0;
+    }
+    &_result-course > div:nth-child(n+4) {
+        margin-top: 35px;
+    }
+    &_coursebox {
+        background-color: #ececec;
+        border-radius: 18px;
+        margin: 0 auto; 
+        display: inline-block;
+    }
+    &_coursemain {
+        padding: 25px 40px;
+        box-sizing: border-box;
+    }
+    &_course-name {
+        @extend %title;
+        line-height: auto;
+        font-size: 26px;
+    }
+    &_course-openbox {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+    &_course-procent {
+        font-family: "Montserrat bold";
+        font-weight: 700;
+        font-size: 24px;
+        color: $black;
+    }
+    &_procent-now {
+        color: $dark-blue;
+    }
+    &_additional-more-detailed-box {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        margin-left: 94px;
+    }
+    &_additional-more-detailed-text {
+        @extend %title;
+        font-size: 18px;
+        color: $black;
+        margin-right: 6px;
+    }
+}
+
+.authorization-box, .registration-box {
+    &_main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &_title {
+        @extend %title;
+        line-height: auto;
+        font-size: 63px;
+        text-align: center;
+        margin-bottom: 75px;
+    }
+    &_text {
+        width: 1012px;
+        text-align: center;
+        font-family: "Century Gothic regular";
+        font-weight: 400;
+        line-height: 47.6px;
+        color: $black;
+        margin-bottom: 50px;
+        font-size: 18px;
+    }
+    &_form {
+        margin: 0 auto;
+        width: 491px;
+    }
+    &_inputbox input {
+        width: 454px;
+        height: 53px;
+        background: #e5e3ff;
+        border-radius: 18px;
+        border: none;
+        @extend %text-two;
+        font-size: 16px;
+        line-height: 37.5px;
+        color: $black;
+        padding-left: 37px;
+    }
+    &_inputbox ::placeholder {
+        @extend %text-two;
+        font-size: 16px;
+        line-height: 37.5px;
+        color: #9938AB; 
+    }
+    &_inputbox input:focus {
+        background: $white;
+        color: $black;
+    }
+    &_inputbox input:focus::placeholder {
+        color: rgba(0, 0, 0, 0.42);
+    }
+    &_button {
+        padding: 18px 222px;
+        background-color: $violet;
+        border-radius: 18px;
+        border: none;
+        margin: 40px auto 45px auto;
+    }
+    &_button-text {
+        @extend %button-text;
+        color: $white;
+        font-size: 14px;
+    }
+    &_buttonbox {
+        display: inline-grid;
+        text-align: center;
+    }
+    &_link {
+        font-family: "Montserrat medium";
+        font-weight: 500;
+        font-size: 16px;
+        color: $violet;
+        text-decoration: none;
+    }
+}
+.registration-box {
+    &_button {
+        padding: 18px 167px;
+    }
+}
+.authorization-box_inputbox input:not(:last-of-type) {
+    margin-bottom: 20px;
+}
+.registration-box_inputbox input:not(:last-of-type) {
+    margin-bottom: 20px;
+}
+.update-box {
+    &_main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &_title {
+        @extend %title;
+        line-height: auto;
+        font-size: 63px;
+        text-align: center;
+        margin-bottom: 75px;
+    }
+    &_form {
+        margin: 0 auto;
+    }
+    &_inputbox {
+        height: 540px;
+        width: 735px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    &_inputbox input {
+        width: 310px;
+        height: 53px;
+        background: #e5e3ff;
+        border-radius: 18px;
+        border: none;
+        @extend %text-two;
+        font-size: 16px;
+        line-height: 37.5px;
+        color: $black;
+        padding-left: 37px;
+    }
+    &_inputbox input:nth-child(-n+6) {
+        margin-right: 20px;
+    }
+    &_inputbox ::placeholder {
+        @extend %text-two;
+        font-size: 16px;
+        line-height: 37.5px;
+        color: #9938AB; 
+    }
+    &_inputbox input:focus {
+        background: $white;
+        color: $black;
+    }
+    &_inputbox input:focus::placeholder {
+        color: rgba(0, 0, 0, 0.42);
+    }
+    &_button {
+        padding: 18px 137px;
+        background-color: $violet;
+        border-radius: 18px;
+        border: none;
+        margin: 0px auto 45px auto;
+    }
+    &_button-text {
+        @extend %button-text;
+        color: $white;
+        font-size: 14px;
+    }
+    &_buttonbox {
+        display: inline-grid;
+        text-align: center;
+        width: 735px;
+    }
+    &_link {
+        font-family: "Montserrat medium";
+        font-weight: 500;
+        font-size: 16px;
+        color: $violet;
+        text-decoration: none;
+    }
+    &_inputbox input[type="file"] {
+        border: 1px solid #ccc;
+        border-radius: 12px; 
+        background-color: #f9f9f9;
+        height: 40px;
+    }
+    &_inputbox input[type="file"]:hover {
+        background-color: #e9e9e9;
+        cursor: pointer;
+    }
+}
+.update-box_inputbox input:not(:last-of-type) {
+    margin-bottom: 20px;
+}
+.error {
+    text-align: center;
+    font-family: "Century Gothic bold";
+    font-weight: 700;
+    font-size: 16px;
+    color: $dark-blue;
+    margin-bottom: 25px;
+}
+
+.page-404 {
+    &_main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &_title {
+        @extend %title;
+        line-height: auto;
+        font-size: 63px;
+        text-align: center;
+        margin-bottom: 75px;
+    }
+    &_text {
+        width: 1012px;
+        text-align: center;
+        font-family: "Century Gothic regular";
+        font-weight: 400;
+        line-height: 47.6px;
+        color: $black;
+        margin-bottom: 50px;
+        font-size: 18px;
+    }
+}
+
+//for pad
+@media (min-width:768px) and (max-width:1023px) {
+
+    %title-two {
+        font-size: 24px;
+    }
+    %text {
+        line-height: 28.5px;
+        font-size: 11px;
+        width: 365px;
+    }
+    %button {
+        padding: 10px 18px;
+        border-radius: 15px;
+    }
+    .container {
+        max-width: 650px;
+    }
+    .container-two {
+        max-width: 768px;
+    }
+    .main-menu {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        height: 48px;
+        &_wrapper img {
+            width: 128px;
+            height: 48px;
+        }
+        &_wrapper svg {
+            width: 16px;
+            height: 14px;
+        }
+    }
+    .dropdown-menu {
+        width: 380px;
+        &_main-box {
+            margin-right: 50px;
+        }
+        &_wrapper {
+            margin-bottom: 30px;
+        }
+        &_title {
+            font-size: 20px;
+        }
+        &_title-margin {
+            margin-bottom: 20px;
+        }
+        &_link {
+            font-size: 16px;
+        }
+    }
+    .dropdown-menu.open {
+        left: 0;
+    }
+    .intro {
+        width: 700px;
+        height: 328px;
+        &_title {
+            font-size: 28px;
+            width: 400px;
+            margin-bottom: 10px;
+        }
+        &_text {
+            margin-bottom: 10px;
+        }
+        &_button-text {
+            font-size: 12px;
+        }
+        &_main-box {
+            padding: 53px 0 0 50px;
+        }
+    }
+    .section-one {
+        margin-top: 60px;
+        margin-bottom: 80px;
+        &_title {
+            margin-bottom: 40px;
+        }
+        &_course-box {
+            width: 491px;
+            height: 280px;
+            border-radius: 35px;
+        }
+        &_course-box-main {
+            padding: 15px 20px 15px 20px;
+        }
+        &_additional-button-text {
+            font-size: 11px;
+        }
+        &_additional-more-detailed-text {
+            font-size: 14px;
+            margin-right: 4px;
+        }
+        &_main-information-title {
+            font-size: 22px;
+        }
+        &_main-information-text {
+            font-size: 12px;
+            line-height: 28.5px;
+            width: 255px;
+            margin: 3px 0 15px 0;
+        }
+        &_main-information-button-text {
+            font-size: 12px;
+        }
+        &_courses-box {
+            justify-content: center;
+        }
+        &_button-text {
+            font-size: 12px;
+        }
+        &_button-box {
+            margin-top: 10px;
+        }
+    }
+    .section-one_additional-button-box button:nth-child(1) {
+        margin-right: 15px;
+    }
+    .section-one_course-box:nth-child(-n+4) {
+        margin-bottom: 36px;
+    }
+    .section-one_course-box:nth-child(-n+4) {
+        background-size: cover;
+    }
+    .section-two {
+        margin-bottom: 80px;
+        &_information-box {
+            padding: 25px 40px 30px 40px;
+            margin-bottom: 25px
+        }
+        &_title {
+            font-size: 18px;
+            line-height: 28.6px;
+            margin-bottom: 3px;
+        }
+        &_text {
+            font-size: 14px;
+            line-height: 28.6px;
+        }
+        &_advantage-box {
+            padding: 10px 30px 15px 30px;
+        }
+        &_advantage-title {
+            line-height: 27.5px;
+            font-size: 12px;
+            margin-bottom: 3px;
+        }
+        &_advantage-text {
+            font-size: 11px;
+            line-height: 20.5px;
+        }
+        &_width-one {
+            width: 188px;
+        }
+        &_width-two {
+            width: 298px;
+        }
+        &_width-three {
+            width: 568px;
+        }
+        &_width-four {
+            width: 270px;
+        }
+        &_width-five {
+            width: 217px;
+        }
+    }
+    .section-two_advantage-box:not(:nth-child(3)):not(:nth-child(5)) {
+        margin-right: 20px;
+    }
+    .section-two_advantage-box:nth-child(-n+3) {
+        margin-bottom: 20px;
+    }
+
+    .section-three {
+        margin-bottom: 80px;
+        &_title {
+            margin-bottom: 40px;
+        }
+        &_example-button {
+            margin-bottom: 10px;
+            margin-right: 15px;
+        }
+        &_example-button-text {
+            font-size: 12px;
+        }
+        &_example-button-two {
+            margin-bottom: 10px;
+        }
+        &_example-button-text-two {
+            font-size: 12px;
+        }
+        &_example-button-box {
+            margin-top: 15px;
+        }
+        &_examples-box {
+            max-width: 768px;
+        }
+    }
+    
+    .swiper-container .swiper-wrapper {
+        transform: translateX(50px);
+    }
+
+    .section-four {
+        &_consultation-form-box {
+            width: 650px;
+            height: 566px;
+            border-radius: 35px;
+        }
+        &_consultation-form-main {
+            padding: 64px 70px;
+            display: inline-block;
+        }
+        &_consultation-form-title {
+            font-size: 28px;
+            line-height: 43px;
+            margin-bottom: 15px;
+        }
+        &_consultation-form-text {
+            font-size: 12px;
+            line-height: 28.5px;
+            margin-bottom: 20px;
+        }
+        &_consultation-form-input-box input {
+            width: 481px;
+            height: 40px;
+            border-radius: 13px;
+            font-size: 12px;
+            padding-left: 10px;
+        }
+        &_consultation-form-input-box ::placeholder{
+            padding-left: 27px;
+            font-size: 12px;
+        }
+        &_personal-data input {
+            width: 17px;
+            height: 17px;
+        }
+        &_personal-data label {
+            font-size: 10px;
+            margin-left: 8px;
+        }
+        &_personal-data {
+            margin: 14px 0 20px 0;
+        }
+        &_personal-data-button {
+            padding: 13px 167px;
+            border-radius: 13px;
+        }
+        &_personal-data-button-text {
+            font-size: 12px;
+        }
+    }
+    .section-four_consultation-form-input-box input:nth-child(2) {
+        margin: 10px 0;
+    }
+    .footer {
+        margin-top: 100px;
+        &_main-box {
+            height: 120px;
+        }
+        &_main-wrapper-logo {
+            width: 122px;
+            height: 46px;
+        }
+        &_main-list {
+            font-size: 12px;
+        }
+        &_main-wrapper-apps {
+            width: 97px;
+        }
+        &_aditional-box {
+            padding: 16px;
+        }
+        &_aditional-text {
+            font-size: 10px;
+        }
+    }
+    .footer_main-wrapper-info li:nth-child(2) {
+        margin: 5px 0;
+    }
+    .footer_main-wrapper-apps img {
+        width: 25px;
+        height: 25px;
+    }
+
+    /*Course.html*/
+    .course-info {
+        width: 700px;
+        height: 328px;
+        &_title {
+            font-size: 28px;
+            width: 230px;
+            margin-bottom: 10px;
+        }
+        &_text {
+            margin-bottom: 10px;
+            width: 316px;
+        }
+        &_button-text {
+            font-size: 12px;
+        }
+        &_main-box {
+            padding: 25px 0 0 55px;
+        }
+    }
+    .course-aditional-info {
+        flex-wrap: wrap;
+        margin-top: 30px;
+        &_button-text-two {
+            font-size: 11px;
+        }
+        &_button {
+            margin-right: 5px;
+        }
+        &_button-text {
+            font-size: 11px;
+        }
+        &_button-box {
+            margin-bottom: 10px;
+        }
+    }
+    .section-study-programme {
+        margin-top: 65px;
+        margin-bottom: 80px;
+        &_title {
+            margin-bottom: 45px;
+        }
+        &_programme-name-box {
+            padding-bottom: 7px;
+        }
+        &_programme-name {
+            font-size: 22px;
+            width: 410px;
+        }
+        &_button {
+            margin-right: 15px;
+        }
+        &_button-text {
+            font-size: 11px;
+        }
+        &_main-info-text {
+            font-size: 12px;
+        }
+        &_programme-box {
+            width: 645px;
+        }
+        &_main-info {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+    }
+    .section-study-programme_programme-box.active .section-study-programme_main-info {
+        max-height: 200px;
+    }
+    .section-study-programme_programme-add-box svg {
+        width: 17px;
+        height: 17px;
+    }
+    .section-record-form {
+        &_box {
+            width: 650px;
+            height: 566px;
+            border-radius: 35px;
+        }
+        &_main {
+            padding: 59px 70px;
+            display: inline-block;
+        }
+        &_title {
+            font-size: 28px;
+            line-height: 43px;
+            margin-bottom: 15px;
+        }
+        &_text-box {
+            width: 511px;
+        }
+        &_text {
+            font-size: 12px;
+            line-height: 28.5px;
+            margin-bottom: 20px;
+        }
+        &_input-box input {
+            width: 481px;
+            height: 40px;
+            border-radius: 13px;
+            font-size: 12px;
+            padding-left: 10px;
+        }
+        &_input-box ::placeholder{
+            padding-left: 27px;
+            font-size: 12px;
+        }
+        &_personal-data input {
+            width: 17px;
+            height: 17px;
+        }
+        &_personal-data label {
+            font-size: 10px;
+            margin-left: 8px;
+        }
+        &_personal-data {
+            margin: 14px 0 20px 0;
+        }
+        &_personal-data-button {
+            padding: 13px 183px;
+            border-radius: 13px;
+        }
+        &_personal-data-button-text {
+            font-size: 12px;
+        }
+        &_rate-box {
+            margin-top: 10px;
+        }
+        &_rate-title {
+            font-size: 12px;
+            width: 51px;
+            margin-right: 15px;
+        }
+        &_rate input {
+            width: 10px;
+            height: 10px;
+            margin-right: 5px;
+        }
+        &_rate label {
+            font-size: 12px;
+        }
+    }
+    .section-record-form_input-box input:nth-child(2) {
+        margin: 10px 0;
+    }
+    .section-record-form_rate-box .section-record-form_rate:nth-of-type(2) {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .section-rates {
+        margin-top: 80px;
+        &_title-box {
+            margin-bottom: 45px;
+        }
+        &_title {
+            line-height: 134.9%;
+            width: 308px;
+        }
+        &_text {
+            font-size: 12px;
+            line-height: 31.6px;
+            width: 314px;
+        }
+        &_rate-box {
+            height: 565px;
+        }
+        &_rate-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        &_rate-row {
+            font-size: 13px;
+            line-height: 24.5px;
+        }
+        &_rate-bonus-title {
+            font-size: 15px;
+            line-height: 24.5px;
+            margin-top: 10px;
+        }
+        &_rate-bonus-row {
+            font-size: 13px;
+            line-height: 24.5px;
+        }
+        &_rate-old-price {
+            font-size: 15px;
+        }
+        &_rate-new-price {
+            font-size: 15px;
+        }
+        &_rate-new-price-span {
+            font-size: 26px;
+        }
+        &_rate-installment {
+            font-size: 13px;
+        }
+        &_rate-button-box {
+            margin-top: 15px;
+        }
+        &_rate-button-text {
+            font-size: 12px;
+        }
+        &_rate-popular-box {
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+        &_rate-popular-button-text {
+            font-size: 12px;
+        }
+        &_rates-box {
+            justify-content: center;
+        }
+    }
+    .section-rates_rates-box .section-rates_rate-box:nth-of-type(2) {
+        margin-bottom: 30px;
+    }
+    .section-reviews {
+        margin-top: 80px;
+        &_title {
+            margin-bottom: 45px;
+        }
+        &_img {
+            margin-right: 15px;
+        }
+        &_button-text {
+            font-size: 12px;
+        }
+        &_box-text {
+            width: 380px;
+            margin-top: 25px;
+        }
+        &_text {
+            width: 345px;
+            font-size: 12px;
+        }
+        &_box {
+            max-width: 380px;
+            padding: 20px 20px;
+        }
+        &_boxs {
+            max-width: 768px;
+        }
+    }
+   
+    /*Contacts.html*/
+
+    .contacts-info {
+        width: 700px;
+        height: 328px;
+        &_title {
+            font-size: 28px;
+            width: 230px;
+            margin-bottom: 10px;
+        }
+        &_text {
+            margin-bottom: 10px;
+            width: 316px;
+        }
+        &_button-text {
+            font-size: 12px;
+        }
+        &_main-box {
+            padding: 52px 0 0 55px;
+        }
+    }
+    .section-director-info {
+        display: grid;
+        justify-content: center;
+        margin-top: 80px;
+        &_text-box {
+            width: 520px;
+        }
+        &_title {
+            text-align: center;
+            font-size: 24px;
+            line-height: 134.9%;
+            margin-bottom: 30px;
+            margin-top: 15px
+        }
+        &_text {
+            text-align: center;
+            font-size: 14px;
+            line-height: 31.6px;
+        }
+        &_social-network-box {
+            width: 135px;
+            margin-top: 25px;
+            margin-right: 195px;
+        }
+        &_social-network-box img {
+            width: 35px;
+            height: 37px;
+        }
+        &_img-box img {
+            width: 300px;
+            height: 259px;
+        }
+        &_img-box {
+            text-align: center;
+        }
+    }
+    .section-answer-form {
+        margin-top: 80px;
+        &_box {
+            width: 650px;
+            height: 630px;
+            border-radius: 35px;
+        }
+        &_main {
+            padding: 43px 79px;
+            display: inline-block;
+        }
+        &_title {
+            font-size: 28px;
+            line-height: 43px;
+            margin-bottom: 15px;
+        }
+        &_text-box {
+            width: 480px;
+        }
+        &_text {
+            font-size: 12px;
+            line-height: 28.5px;
+            margin-bottom: 20px;
+        }
+        &_input-box input {
+            width: 481px;
+            height: 40px;
+            border-radius: 13px;
+            font-size: 12px;
+            padding-left: 10px;
+        }
+        &_input-box textarea {
+            width: 481px;
+            height: 60px;
+            border-radius: 13px;
+            font-size: 12px;
+        }
+        &_input-box ::placeholder{
+            padding-left: 27px;
+            font-size: 12px;
+        }
+        &_personal-data input {
+            width: 17px;
+            height: 17px;
+        }
+        &_personal-data label {
+            font-size: 10px;
+            margin-left: 8px;
+        }
+        &_personal-data {
+            margin: 14px 0 20px 0;
+        }
+        &_personal-data-button {
+            padding: 13px 211px;
+            border-radius: 13px;
+        }
+        &_personal-data-button-text {
+            font-size: 12px;
+        }
+    }
+    .section-answer-form_input-box input {
+        margin: 0 0 20px 0;
+    }
+
+    .profile-info {
+        &_main-box {
+            width: 550px;
+            height: auto;
+            margin: 40px auto 85px auto;
+            text-align: center;
+            border-radius: 35px;
+        }
+        &_box {
+            width: 550px;
+            display: inline-block;  
+        }
+        &_title {
+            font-size: 28px;
+        }
+        &_img-box img {
+            width: 435px;
+            height: 260px;
+        }
+        &_img-box {
+            margin: 40px auto 0px auto;
+            height: 260px;
+        }
+        &_label {
+            font-size: 16px;
+        }
+        &_info-input p {
+            font-size: 16px;
+        }
+        &_info-input {
+            margin-bottom: 20px;
+            width: 340px;
+            text-align: justify;
+            display: flex;
+        }
+        &_info-box {
+            display: inline-grid;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        &_info-user {
+            height: auto;
+            display: inline;
+            text-align: center;
+            margin: 0 auto;
+        }
+        &_button {
+            margin-bottom: 20px;
+        }
+        &_button-text {
+            font-size: 16px;
+        }
+        &_link-delete {
+            font-size: 14px;
+        }
+    }
+    
+    .profile-courses {
+        &_box {
+            justify-content: space-between;
+        }
+        &_namebox {
+            margin-right: 0px;
+        }
+        &_button-text {
+            font-size: 17px;
+        }
+        &_button {
+            margin-right: 20px;
+        }
+        &_button:last-child {
+            margin-right: 0px;
+        }
+        &_active-text {
+            font-size: 17px;
+        }
+        &_result {
+            margin-top: 60px;
+        }
+        &_not-found {
+            font-size: 32px;
+        }
+        
+        &_result-course > div {
+            margin-left: 0px;
+            margin-top: 15px;
+            width: 100%;
+        }
+        
+        &_result-course > div:nth-child(3n+1) {
+            margin-left: 0;
+        }
+        &_result-course > div:nth-child(n+4) {
+            margin-top: 15px;
+        }
+        &_coursemain {
+            padding: 20px 40px;
+            box-sizing: border-box;
+        }
+        &_course-name {
+            font-size: 20px;
+        }
+        &_course-openbox {
+            margin-top: 15px;
+            justify-content: space-between;
+        }
+        &_course-procent {
+            font-size: 18px;
+        }
+        &_additional-more-detailed-box {
+            margin-left: 0px;
+        }
+        &_additional-more-detailed-text {
+            font-size: 15px;
+        }
+    }
+    
+    .authorization-box, .registration-box {
+        &_title {
+            font-size: 28px;
+        }
+        &_text {
+            width: 515px;
+            margin-top: 35px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            line-height: 37.6px;
+        }
+        &_form {
+            width: 450px;
+        }
+        &_inputbox input {
+            width: 410px;
+            height: 45px;
+            font-size: 14px;
+        }
+        &_inputbox ::placeholder {
+            font-size: 14px;
+        }
+        &_button {
+            padding: 14px 200px;
+            margin: 25px auto 30px auto;
+        }
+        &_button-text {
+            font-size: 14px;
+        }
+        &_link {
+            font-size: 13px;
+        }
+    }
+    .registration-box {
+        &_button {
+            padding: 14px 147px;
+        }
+    }
+
+    .update-box {
+        &_title {
+            font-size: 28px;
+            margin-bottom: 35px;
+        }
+        &_form {
+            margin: 0 auto;
+        }
+        &_inputbox {
+            height: 520px;
+            width: 570px;
+        }
+        &_inputbox input {
+            width: 240px;
+            height: 45px;
+            font-size: 14px;
+        }
+        &_inputbox ::placeholder {
+            font-size: 14px;
+        }
+        &_inputbox input:nth-child(-n+6) {
+            margin-right: 10px;
+        }
+        &_button {
+            padding: 14px 100px;
+            margin: 0px auto 30px auto;
+        }
+        &_buttonbox {
+            display: inline-grid;
+            text-align: center;
+            width: 570px;
+        }
+        &_link {
+            font-size: 13px;
+        }
+        &_inputbox input[type="file"] {
+            height: 40px;
+        }
+    }
+    .page-404 {
+        &_title {
+            font-size: 28px;
+        }
+        &_text {
+            width: 515px;
+            margin-top: 35px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            line-height: 37.6px;
+        }
+    }
+}
+
+//for phone
+@media (min-width:375px) and (max-width:767px) {
+    %title-two {
+        font-size: 18px;
+    }
+    %text {
+        line-height: 25.5px;
+        font-size: 10px;
+        width: 230px;
+    }
+    %button {
+        padding: 8px 15px;
+        border-radius: 11px;
+    }
+    .container {
+        max-width: 320px;
+    }
+    .container-two {
+        max-width: 340px;
+    }
+    .main-menu {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 48px;
+        &_wrapper img {
+            width: 100px;
+            height: 37px;
+        }
+        &_wrapper svg {
+            width: 13px;
+            height: 11px;
+        }
+    }
+    .dropdown-menu {
+        width: 375px;
+        &_main-box {
+            margin-right: 50px;
+        }
+        &_wrapper {
+            margin-bottom: 30px;
+        }
+        &_title {
+            font-size: 18px;
+        }
+        &_title-margin {
+            margin-bottom: 15px;
+        }
+        &_link {
+            font-size: 14px;
+        }
+    }
+    .dropdown-menu.open {
+        left: 0;
+    }
+    // .overlay {
+    //     display: none;
+    // }
+    .intro {
+        width: 340px;
+        height: 400px;
+        background: url("../image/backgrounds/bg_index_phone.png") no-repeat;
+        &_title {
+            font-size: 22px;
+            width: 250px;
+            margin-bottom: 10px;
+        }
+        &_text {
+            margin-bottom: 10px;
+        }
+        &_button-text {
+            font-size: 10px;
+        }
+        &_main-box {
+            padding: 92px 0 0 45px;
+        }
+    }
+    .section-one {
+        margin-top: 40px;
+        margin-bottom: 60px;
+        &_title {
+            margin-bottom: 20px;
+        }
+        &_course-box {
+            width: 340px;
+            height: 225px;
+            border-radius: 35px;
+        }
+        &_course-box-main {
+            padding: 20px;
+        }
+        &_additional-button-text {
+            font-size: 8px;
+        }
+        &_additional-more-detailed-box img {
+            width: 17px;
+            height: 17px;
+        }
+        &_additional-more-detailed-text {
+            font-size: 10px;
+            margin-right: 2px;
+        }
+        &_main-information-title {
+            font-size: 18px;
+        }
+        &_main-information-box {
+            margin-top: 17px;
+        }
+        &_main-information-text {
+            font-size: 10px;
+            line-height: 23.5px;
+            width: 203px;
+            margin: 3px 0 10px 0;
+        }
+        &_main-information-button-text {
+            font-size: 10px;
+        }
+        &_courses-box {
+            justify-content: center;
+        }
+        &_button-text {
+            font-size: 10px;
+        }
+        &_button-box {
+            margin-top: 10px;
+        }
+    }
+    .section-one_additional-button-box button:nth-child(1) {
+        margin-right: 0px;
+    }
+    .section-one_course-box:nth-child(-n+4) {
+        margin-bottom: 20px;
+    }
+    .section-one_course-box:nth-child(-n+4) {
+        background-size: cover;
+    }
+    .section-two {
+        margin-bottom: 60px;
+        &_information-box {
+            padding: 25px 40px 30px 40px;
+            margin-bottom: 15px
+        }
+        &_title {
+            font-size: 16px;
+            line-height: 25.6px;
+            margin-bottom: 3px;
+        }
+        &_text {
+            font-size: 12px;
+            line-height: 25.6px;
+        }
+        &_advantage-box {
+            padding: 10px 30px 15px 30px;
+        }
+        &_advantage-title {
+            line-height: 24.5px;
+            font-size: 12px;
+            margin-bottom: 3px;
+        }
+        &_advantage-text {
+            font-size: 10px;
+            line-height: 20.5px;
+        }
+        &_width-one {
+            width: 256px;
+        }
+        &_width-two {
+            width: 255px;
+        }
+        &_width-three {
+            width: 256px;
+        }
+        &_width-four {
+            width: 255px;
+        }
+        &_width-five {
+            width: 255px;
+        }
+    }
+    .section-two_advantage-box:not(:nth-child(3)):not(:nth-child(5)) {
+        margin-right: 0px;
+    }
+    .section-two_advantage-box:nth-child(-n+4) {
+        margin-bottom: 15px;
+    }
+
+    .section-three {
+        margin-bottom: 60px;
+        &_title {
+            margin-bottom: 20px;
+        }
+        &_example-button {
+            margin-bottom: 10px;
+            margin-right: 5px;
+        }
+        &_example-button-text {
+            font-size: 10px;
+        }
+        &_example-button-two {
+            margin-bottom: 10px;
+        }
+        &_example-button-text-two {
+            font-size: 10px;
+        }
+        &_example-button-box {
+            margin-top: 10px;
+            width: 250px;
+        }
+        &_examples-box {
+            max-width: 375px;
+        }
+    }
+    .swiper-wrapper img {
+        height: 210px;
+    }
+    
+    .swiper-container .swiper-wrapper {
+        transform: translateX(25px);
+    }
+
+    .section-four {
+        &_consultation-form-box {
+            width: 320px;
+            height: 455px;
+            border-radius: 35px;
+        }
+        &_consultation-form-main {
+            padding: 49px 22px;
+            display: inline-block;
+        }
+        &_consultation-form-text-box {
+            width: 265px;
+        }
+        &_consultation-form-formbox {
+            width: 289px;
+        }
+        &_consultation-form-title {
+            font-size: 22px;
+            line-height: 30px;
+            margin-bottom: 10px;
+            width: 264px;
+        }
+        &_consultation-form-text {
+            font-size: 10px;
+            line-height: 20.5px;
+            margin-bottom: 10px;
+            width: 264px;
+        }
+        &_consultation-form-input-box input {
+            width: 260px;
+            height: 35px;
+            border-radius: 13px;
+            font-size: 12px;
+            padding-left: 10px;
+        }
+        &_consultation-form-input-box ::placeholder{
+            padding-left: 15px;
+            font-size: 11px;
+        }
+        &_personal-data input {
+            width: 13px;
+            height: 13px;
+        }
+        &_personal-data label {
+            font-size: 7px;
+            margin-left: 4px;
+            width: 255px;
+        }
+        &_personal-data {
+            margin: 10px 0 10px 0;
+        }
+        &_personal-data-button {
+            padding: 10px 70px;
+            border-radius: 11px;
+        }
+        &_personal-data-button-text {
+            font-size: 10px;
+        }
+    }
+    .section-four_consultation-form-input-box input:nth-child(2) {
+        margin: 10px 0;
+    }
+    .footer {
+        margin-top: 80px;
+        &_main-box {
+            height: 150px;
+        }
+        &_main-wrapper-logo {
+            width: 98px;
+            height: 37px;
+        }
+        &_main-list {
+            font-size: 10px;
+            text-align: center;
+        }
+        &_main-wrapper-apps {
+            width: 190px;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        &_aditional-box {
+            padding: 16px;
+        }
+        &_aditional-text {
+            font-size: 10px;
+        }
+        &_main {
+            display: grid;
+            justify-content: center;
+        }
+    }
+    .footer_main-wrapper-info li:nth-child(2) {
+        margin: 5px 0;
+    }
+    .footer_main-wrapper-apps img {
+        width: 25px;
+        height: 25px;
+    }
+    .footer_main-wrapper-apps .footer_main-list:nth-child(2) {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    /*Course.html*/
+    .course-info {
+        width: 340px;
+        height: 400px;
+        background: url("../image/backgrounds/bg_courses_phone.png") no-repeat;
+        &_title {
+            font-size: 22px;
+            width: 250px;
+            margin-bottom: 10px;
+        }
+        &_text {
+            margin-bottom: 10px;
+            width: 225px;
+        }
+        &_button-text {
+            font-size: 10px;
+        }
+        &_main-box {
+            padding: 52px 0 0 60px;
+        }
+    }
+    .course-aditional-info {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+        &_button-text-two {
+            font-size: 10px;
+        }
+        &_button {
+            margin-right: 5px;
+        }
+        &_button-text {
+            font-size: 10px;
+        }
+        &_button-box {
+            margin-bottom: 10px;
+        }
+    }
+    .section-study-programme {
+        margin-top: 40px;
+        margin-bottom: 60px;
+        &_title {
+            margin-bottom: 30px;
+        }
+        &_programme-name-box {
+            padding-bottom: 3px;
+        }
+        &_programme-name {
+            font-size: 14px;
+            width: 262px;
+        }
+        &_button {
+            display: none;
+        }
+        &_main-info-text {
+            font-size: 10px;
+        }
+        &_programme-box {
+            width: 300px;
+        }
+        &_main-info {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+    }
+    .section-study-programme_programme-box.active .section-study-programme_main-info {
+        max-height: 100px;
+    }
+    .section-study-programme_programme-add-box svg {
+        width: 14px;
+        height: 14px;
+    }
+    .section-record-form {
+        &_box {
+            width: 320px;
+            height: 550px;
+            border-radius: 35px;
+        }
+        &_formbox {
+            width: 288px;
+        }
+        &_main {
+            padding: 63px 25px;
+            display: inline-block;
+        }
+        &_title {
+            font-size: 22px;
+            line-height: 30px;
+            margin-bottom: 10px;
+            width: 264px;
+        }
+        &_text-box {
+            width: 264px;
+        }
+        &_text {
+            font-size: 10px;
+            line-height: 20.5px;
+            margin-bottom: 10px;
+        }
+        &_input-box input {
+            width: 260px;
+            height: 35px;
+            border-radius: 13px;
+            font-size: 12px;
+            padding-left: 10px;
+        }
+        &_input-box ::placeholder{
+            padding-left: 15px;
+            font-size: 11px;
+        }
+        &_personal-data input {
+            width: 13px;
+            height: 13px;
+        }
+        &_personal-data label {
+            font-size: 7px;
+            margin-left: 4px;
+            width: 255px;
+        }
+        &_personal-data {
+            margin: 10px 0 10px 0;
+        }
+        &_personal-data-button {
+            padding: 10px 82px;
+            border-radius: 11px;
+        }
+        &_personal-data-button-text {
+            font-size: 10px;
+        }
+        &_rate-box {
+            margin-top: 10px;
+        }
+        &_rate-title {
+            font-size: 10px;
+            width: 45px;
+            margin-right: 5px;
+        }
+        &_rate input {
+            width: 6px;
+            height: 6px;
+            margin-right: 3px;
+        }
+        &_rate label {
+            font-size: 10px;
+        }
+    }
+    .section-record-form_input-box input:nth-child(2) {
+        margin: 10px 0;
+    }
+    .section-record-form_rate-box .section-record-form_rate:nth-of-type(2) {
+        margin-left:  10px;
+        margin-right: 10px;
+    }
+    .section-rates {
+        margin-top: 60px;
+        &_title-box {
+            margin-bottom: 25px;
+            display: grid;
+            justify-content: center;
+        }
+        &_title {
+            line-height: 134.9%;
+            width: 300px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        &_text {
+            font-size: 10px;
+            line-height: 31.6px;
+            width: 295px;
+            text-align: center;
+        }
+        &_rate-box {
+            height: 420px;
+            width: 270px;
+            padding: 15px 25px 25px 25px;
+        }
+        &_rate-title {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        &_rate-row {
+            font-size: 10px;
+            line-height: 20.5px;
+        }
+        &_rate-bonus-title {
+            font-size: 12px;
+            line-height: 20.5px;
+            margin-top: 5px;
+        }
+        &_rate-bonus-row {
+            font-size: 10px;
+            line-height: 20.5px;
+        }
+        &_rate-old-price {
+            font-size: 10px;
+        }
+        &_rate-new-price {
+            font-size: 10px;
+        }
+        &_rate-new-price-span {
+            font-size: 17px;
+        }
+        &_rate-installment {
+            font-size: 10px;
+        }
+        &_rate-button-box {
+            margin-top: 10px;
+        }
+        &_rate-button-text {
+            font-size: 10px;
+        }
+        &_rate-popular-box {
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+        &_rate-popular-button-text {
+            font-size: 10px;
+        }
+        &_rates-box {
+            justify-content: center;
+        }
+    }
+    .section-rates_rates-box .section-rates_rate-box:nth-of-type(2) {
+        margin-bottom: 20px;
+    }
+    .section-reviews {
+        margin-top: 60px;
+        &_title {
+            margin-bottom: 35px;
+        }
+        &_img {
+            display: none;
+        }
+        &_button-text {
+            font-size: 10px;
+        }
+        &_box-text {
+            width: 270px;
+            margin-top: 15px;
+        }
+        &_text {
+            width: 230px;
+            font-size: 10px;
+        }
+        &_box {
+            max-width: 275px;
+            padding: 20px 20px;
+        }
+        &_boxs {
+            max-width: 375px;
+        }
+    }
+   
+    /*Contacts.html*/
+
+    .contacts-info {
+        width: 340px;
+        height: 400px;
+        background: url("../image/backgrounds/bg_courses_phone.png") no-repeat;
+        &_title {
+            font-size: 22px;
+            width: 250px;
+            margin-bottom: 10px;
+        }
+        &_text {
+            margin-bottom: 10px;
+            width: 225px;
+        }
+        &_button-text {
+            font-size: 10px;
+        }
+        &_main-box {
+            padding: 82px 0 0 60px;
+        }
+    }
+    .section-director-info {
+        display: grid;
+        justify-content: center;
+        margin-top: 60px;
+        &_text-box {
+            width: 300px;
+        }
+        &_title {
+            text-align: center;
+            font-size: 20px;
+            line-height: 134.9%;
+            margin-bottom: 15px;
+            margin-top: 10px
+        }
+        &_text {
+            text-align: center;
+            font-size: 12px;
+            line-height: 31.6px;
+        }
+        &_social-network-box {
+            display: flex;
+            justify-content: center;
+            width: 300px;
+            margin-top: 15px;
+        }
+        &_social-network-box img {
+            width: 35px;
+            height: 37px;
+        }
+        &_img-box img {
+            width: 250px;
+            height: 209px;
+        }
+        &_img-box {
+            text-align: center;
+        }
+    }
+    .section-director-info_social-network-box .section-director-info_link:nth-child(2) {
+        margin: 0 10px;
+    }
+    .section-answer-form {
+        margin-top: 60px;
+        &_box {
+            width: 255px;
+            padding: 48px 32px;
+            height: 499px;
+            border-radius: 35px;
+        }
+        &_main {
+            padding: 0px 0px;
+            width: 285px;
+            display: inline-block;
+        }
+        &_title {
+            font-size: 22px;
+            line-height: 30px;
+            margin-bottom: 10px;
+            width: 264px;
+        }
+        &_text-box {
+            width: 264px;
+        }
+        &_text {
+            font-size: 10px;
+            line-height: 20.5px;
+            margin-bottom: 10px;
+        }
+        &_input-box input {
+            width: 260px;
+            height: 35px;
+            border-radius: 13px;
+            font-size: 12px;
+            padding-left: 10px;
+        }
+        &_input-box textarea {
+            width: 260px;
+            height: 55px;
+            border-radius: 13px;
+            font-size: 12px;
+        }
+        &_input-box ::placeholder{
+            padding-left: 15px;
+            font-size: 11px;
+        }
+        &_personal-data input {
+            width: 13px;
+            height: 13px;
+        }
+        &_personal-data label {
+            font-size: 7px;
+            margin-left: 4px;
+            width: 255px;
+        }
+        &_personal-data {
+            margin: 10px 0 10px 0;
+        }
+        &_personal-data-button {
+            padding: 10px 107px;
+            border-radius: 11px;
+        }
+        &_personal-data-button-text {
+            font-size: 10px;
+        }
+        &_formbox {
+            width: 284px;
+        }
+    }
+    .section-answer-form_input-box input {
+        margin: 0 0 20px 0;
+    }
+
+    .profile-info {
+        &_main-box {
+            width: 320px;
+            height: auto;
+            margin: 30px auto 65px auto;
+            text-align: center;
+            border-radius: 35px;
+        }
+        &_box {
+            width: 320px;
+            display: inline-block;  
+        }
+        &_title {
+            font-size: 22px;
+        }
+        &_img-box img {
+            width: 260px;
+            height: 195px;
+        }
+        &_img-box {
+            margin: 25px auto 0px auto;
+            height: 195px;
+            width: 260px 
+        }
+        &_label {
+            font-size: 13px;
+        }
+        &_info-input p {
+            font-size: 13px;
+            width: 125px;
+        }
+        &_info-input {
+            margin-bottom: 15px;
+            width: 250px;
+            text-align: justify;
+            display: flex;
+        }
+        &_info-box {
+            display: inline-grid;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        &_info-user {
+            height: auto;
+            display: inline;
+            text-align: center;
+            margin: 0 auto;
+        }
+        &_button {
+            margin-bottom: 15px;
+        }
+        &_button-text {
+            font-size: 13px;
+        }
+        &_link-delete {
+            font-size: 12px;
+        }
+    }
+    
+    .profile-courses {
+        &_box {
+            display: inline-grid;
+            text-align: center;
+            width: 100%;
+        }
+        &_title {
+            margin-bottom: 15px;
+        }
+        &_namebox {
+            margin-right: 0px;
+        }
+        &_button-text {
+            font-size: 14px;
+        }
+        &_button {
+            margin-right: 10px;
+        }
+        &_button:last-child {
+            margin-right: 0px;
+        }
+        &_active-text {
+            font-size: 14px;
+        }
+        &_result {
+            margin-top: 20px;
+        }
+        &_not-found {
+            font-size: 24px;
+        }
+        
+        &_result-course > div {
+            margin-left: 0px;
+            margin-top: 15px;
+            width: 100%;
+        }
+        
+        &_result-course > div:nth-child(3n+1) {
+            margin-left: 0;
+        }
+        &_result-course > div:nth-child(n+4) {
+            margin-top: 15px;
+        }
+        &_coursemain {
+            padding: 15px 30px;
+            box-sizing: border-box;
+        }
+        &_course-name {
+            font-size: 16px;
+        }
+        &_course-openbox {
+            margin-top: 10px;
+            justify-content: space-between;
+        }
+        &_course-procent {
+            font-size: 15px;
+        }
+        &_additional-more-detailed-box {
+            margin-left: 0px;
+        }
+        &_additional-more-detailed-text {
+            font-size: 13px;
+        }
+    }
+    
+    .authorization-box, .registration-box {
+        &_title {
+            font-size: 22px;
+        }
+        &_text {
+            width: 300px;
+            margin-top: 25px;
+            margin-bottom: 20px;
+            font-size: 12px;
+            line-height: 29.6px;
+        }
+        &_form {
+            width: 300px;
+        }
+        &_inputbox input {
+            width: 270px;
+            height: 35px;
+            font-size: 12px;
+            border-radius: 12px;
+            padding-left: 30px;
+        }
+        &_inputbox ::placeholder {
+            font-size: 12px;
+        }
+        &_button {
+            padding: 10px 130px;
+            margin: 20px auto 20px auto;
+            border-radius: 12px;
+        }
+        &_button-text {
+            font-size: 12px;
+        }
+        &_link {
+            font-size: 10px;
+        }
+    }
+    .registration-box {
+        &_button {
+            padding: 10px 83px;
+        }
+    }
+    .authorization-box_inputbox input:not(:last-of-type) {
+        margin-bottom: 15px;
+    }
+    .registration-box_inputbox input:not(:last-of-type) {
+        margin-bottom: 15px;
+    }
+    .update-box {
+        &_title {
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+        &_inputbox {
+            height: 520px;
+            width: 570px;
+            display: inline;
+        }
+        &_inputbox input {
+            width: 270px;
+            height: 35px;
+            font-size: 12px;
+            border-radius: 12px;
+            padding-left: 30px;
+        }
+        &_inputbox ::placeholder {
+            font-size: 14px;
+        }
+        &_inputbox input:nth-child(-n+6) {
+            margin-right: 10px;
+        }
+        &_button {
+            padding: 10px 120px;
+            margin: 0px auto 20px auto;
+            border-radius: 12px;
+        }
+        &_buttonbox {
+            width: 300px;
+        }
+        &_button-text {
+            font-size: 12px;
+        }
+        &_link {
+            font-size: 10px;
+        }
+        &_inputbox input[type="file"] {
+            height: 35px;
+        }
+    }
+    .page-404 {
+        &_title {
+            font-size: 22px;
+        }
+        &_text {
+            width: 300px;
+            margin-top: 25px;
+            margin-bottom: 20px;
+            font-size: 12px;
+            line-height: 29.6px;
+        }
+    }
+}
