@@ -7,6 +7,5 @@ let mySlider = new Swiper('.section-reviews_boxs', {
 
     slidesPerView: 1.55,
     spaceBetween: 35,  
-    
 }
 );

@@ -5,7 +5,7 @@ require_once '../config/connect.php';
 if(!empty($_POST['auth']))
 {
     $login = trim($_POST['login']);
-    $pass = md5(trim($_POST['password']));
+    $pass = trim($_POST['password']);
 
     if(isset($_POST['g-recaptcha-response'])){
         $recapcha = $_POST['g-recaptcha-response'];
@@ -19,12 +19,13 @@ if(!empty($_POST['auth']))
             $responseKey = json_decode($response, true);
     
             if($responseKey['success']){
-                if(!empty($_POST['login']) and !empty($_POST['password'])) {
+                if(!empty($login) and !empty($pass)) {
                     $check_user = mysqli_query($link, "SELECT * FROM `users` WHERE `login` = '$login'");
                     if (mysqli_num_rows($check_user) > 0) {
             
                         $user = mysqli_fetch_assoc($check_user);
-                        $_SESSION['user'] = [
+                        if (password_verify($pass, $user['password'])) {
+                            $_SESSION['user'] = [
                             "id_users" => $user['id_users'],
                             "name" => $user['name'],
                             "surname" => $user['surname'],
@@ -38,7 +39,16 @@ if(!empty($_POST['auth']))
                             "photo_profile" => $user['photo_profile'],
                             "id_access_rights" => $user['id_access_rights']
                         ];
-                        header('Location: ../../profile.php');
+                        if (($_SESSION['user']['id_access_rights']) == 1) {
+                            header('Location: ../../profile.php');
+                        }
+                        if (($_SESSION['user']['id_access_rights']) == 2) {
+                            header('Location: ../../admin.php');
+                        }
+                        } else {
+                            $_SESSION['message'] = 'Неправильный пароль';
+                            header('Location:' . $_SERVER['HTTP_REFERER']);
+                        }
                     } elseif (mysqli_num_rows($check_user) == 0) {
                         $_SESSION['message'] = 'Неправильный логин или пароль';
                         header('Location:' . $_SERVER['HTTP_REFERER']);
